@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: wearerequired/git-mirror-action@v1
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.pubkey }}
+          SSH_PRIVATE_KEY: ${{ secrets.PUB_KEY }}
         with:
           source-repo: 'git@github.com:KyanCh/pubfiles.git'
           destination-repo: 'git@gitee.com:KyanCh/kyanch.git'
