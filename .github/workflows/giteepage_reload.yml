@@ -19,5 +19,4 @@ jobs:
           repository: https://gitee.com/KyanCh/kyanch/
           cookie: ${{ secrets.GITEE_COOKIE }}
           branch: master
-          directory: src
           https: true
