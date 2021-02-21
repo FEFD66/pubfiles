@@ -12,3 +12,14 @@ jobs:
         with:
           source-repo: 'git@github.com:KyanCh/pubfiles.git'
           destination-repo: 'git@gitee.com:KyanCh/kyanch.git'
+  reload-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: reload
+        uses: mizuka-wu/gitee-pages-action@v1.0.0
+        with:
+          repository: git@gitee.com:KyanCh/kyanch.git
+          cookie: ${{ secrets.GITEE_COOKIE }}
+          branch: master
+          directory: src
+          https: true
