@@ -3,22 +3,20 @@ name: Mirror to Gitee
 on: [ push, delete, create ]
 
 jobs:
-  git-mirror:
+  gitee-page-reload:
     runs-on: ubuntu-latest
     steps:
-      - uses: wearerequired/git-mirror-action@v1
+      - name: mirror
+        uses: wearerequired/git-mirror-action@v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.PUB_KEY }}
         with:
           source-repo: 'git@github.com:KyanCh/pubfiles.git'
           destination-repo: 'git@gitee.com:KyanCh/kyanch.git'
-  reload-pages:
-    runs-on: ubuntu-latest
-    steps:
       - name: reload
         uses: mizuka-wu/gitee-pages-action@v1.0.0
         with:
-          repository: git@gitee.com:KyanCh/kyanch.git
+          repository: https://gitee.com/KyanCh/kyanch/
           cookie: ${{ secrets.GITEE_COOKIE }}
           branch: master
           directory: src
